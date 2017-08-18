@@ -1,0 +1,34 @@
+Notes
+
+launching scality s3
+	> clone
+	> location config
+
+aws cli : for interacting with cloudserver from the cl
+	> called with "aws"
+	> need to add files to ~/.aws
+		> config
+		> credentials
+			> if running on local machine
+				> accesskey1
+				> verysecretkey1
+			> if connecting to amazon
+				> use your amazon credentials
+	> when calling commands you will have to specify localhost
+
+boto3 : python module that allows you to interact with the cloudserver
+	> s3-server.readthedocs.io
+		> info there
+
+	> put_object(key='xys', body=someData, bucket='abucket')
+		> puts the object into s3
+	
+
+zookeeper and kafka
+
+	zookeeper
+		> node = log_stuff
+
+
+	kafka
+		> topic = log_messages
