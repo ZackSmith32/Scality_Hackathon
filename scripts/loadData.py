@@ -9,7 +9,7 @@ client = boto3.client(
 	endpoint_url='http://localhost:8000'
 )
 
-lines = open(dummyDir + 'ml-1m/' + 'movies.dat')
+lines = open(dummyDir + 'ml-1m/' + 'ml-200')
 
 for line in lines:
 	a = line.strip().split("::")

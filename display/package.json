@@ -1,0 +1,15 @@
+{
+  "name": "log",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "zsmith",
+  "license": "ISC",
+  "dependencies": {
+    "kafka-node": "^2.2.0",
+    "stream": "0.0.2"
+  }
+}

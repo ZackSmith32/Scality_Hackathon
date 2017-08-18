@@ -1,22 +1,55 @@
 from kafka import KafkaConsumer
 import json
+import matplotlib.pyplot as plt
+import plotly.plotly as py
+import plotTest as h
+# from pyspark import SparkConf, SparkContext
+import messageProcesser as mp
 
+f = open('logs.txt', 'w')
 consumer = KafkaConsumer('test3')
 keys = {}
-for msg in consumer:
-	try:
-		m = json.loads(msg.value)
-		# print(m)
-	except ValueError, e:
-		print(e.message)
+elapsed_time = []
+try:
+	for msg in consumer:
+		try:
+			m = json.loads(msg.value)
+			print(m)
+		except ValueError, e:
+			print("value error")
+			print(e.message)
 
-	for k in m:
-		if k in keys:
-			keys[k] += 1
-		else:
-			keys[k] = 1
+		try:
+			f.write(m['message'] + '\n')
+		except Exception, e:
+			print(e.message)
 
-	print (keys)
+		for k in m:
+			if k in keys:
+				keys[k] += 1
+			else:
+				keys[k] = 1
+			if k == 'elapsed_ms':
+				print(m[k])
+				elapsed_time.append(m[k])
+except:
+	print("Keyboard Interupt")
+	print("\n\n\n\n")
+
+mp.mp()
+print('\n\n')
+raw_input()
+
+print (elapsed_time)
+print('\n\n')
+raw_input()
+
+print (keys)
+print('\n\n')
+raw_input()
+h.hist(elapsed_time)
+
+
 
 
 '''
